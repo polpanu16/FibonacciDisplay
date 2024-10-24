@@ -75,6 +75,7 @@ class _FibonacciDisplayScreenState extends State<FibonacciDisplayScreen> {
       builder: (context) => FiboBottomSheet(
         widgets: [
           ...fibosTypeBottomSheetMap[item.type]!.map((fibo) => FibonacciCard(
+              highlightColor: Colors.green,
               fibo: fibo,
               isSelected: fibo.key == item.key,
               onTap: () {

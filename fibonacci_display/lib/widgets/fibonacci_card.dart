@@ -7,13 +7,17 @@ class FibonacciCard extends StatelessWidget {
       {super.key,
       required this.fibo,
       required this.onTap,
-      required this.isSelected});
+      required this.isSelected,
+      this.highlightColor});
   final FibonacciNumberEntity fibo;
   final bool isSelected;
   final VoidCallback onTap;
+  final Color? highlightColor;
 
   @override
   Widget build(BuildContext context) {
+    final selectedColor = highlightColor ?? Colors.red;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
@@ -23,7 +27,7 @@ class FibonacciCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        tileColor: (isSelected) ? Colors.red : Colors.amber[100],
+        tileColor: (isSelected) ? selectedColor : Colors.amber[100],
       ),
     );
   }
