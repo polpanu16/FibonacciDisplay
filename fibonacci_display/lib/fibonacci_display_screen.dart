@@ -93,7 +93,9 @@ class _FibonacciDisplayScreenState extends State<FibonacciDisplayScreen> {
                       .removeWhere((e) => e.key == fibo.key);
 
                   selectedItem = fibo;
-                  _scrollToItem(indexForInsert);
+                  _scrollToItem((indexForInsert == -1)
+                      ? mainFiboList.length - 1
+                      : indexForInsert);
                 });
 
                 Navigator.pop(context);
